@@ -9,7 +9,7 @@ public class Athlete
     public string PhoneNumber { get; set; }
     public DateTime DateOfBirth { get; set; }
     public string Gender { get; set; }
-    public string Sport { get; set; }
+    public Sport Sport { get; set; }
     public double Height { get; set; }
     public double Weight { get; set; }
 }
