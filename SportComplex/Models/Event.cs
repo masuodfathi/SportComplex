@@ -11,5 +11,7 @@
         public bool IsOutdoor {  get; set; }
         public string OrganizerName {  get; set; }
         public int Capacity {  get; set; }
+        
+        public ICollection<Ticket> Tickets { get; set; }
     }
 }

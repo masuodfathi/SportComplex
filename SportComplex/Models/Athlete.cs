@@ -1,15 +1,35 @@
-﻿namespace SportComplex.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-public class Athlete
+namespace SportComplex.Models
 {
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
-    public string PhoneNumber { get; set; }
-    public DateTime DateOfBirth { get; set; }
-    public string Gender { get; set; }
-    public Sport Sport { get; set; }
-    public double Height { get; set; }
-    public double Weight { get; set; }
+    public class Athlete
+    {
+        public int Id { get; set; }
+
+        [MaxLength(15)]
+        [MinLength(3)]
+        public string FirstName { get; set; }
+
+        [MaxLength(15)]
+        [MinLength(3)]
+        public string LastName { get; set; }
+
+        [MaxLength(20)]
+        [MinLength(5)]
+        public string Email { get; set; }
+
+        [MaxLength(11)]
+        [MinLength(11)]
+        public string PhoneNumber { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
+
+        public string Gender { get; set; }
+        
+        [ForeignKey("Sport")]
+        public int SportId { get; set; } // Foreign key property
+        
+        public Sport Sport { get; set; } // Navigation property
+    }
 }
