@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVCUserDbsModelStoreContainer" CdmEntityContainer="MVCUserDbsEntities">
+    <EntitySetMapping Name="TblUsers">
+      <EntityTypeMapping TypeName="MVCUserDbsModel.TblUser">
+        <MappingFragment StoreEntitySet="TblUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
