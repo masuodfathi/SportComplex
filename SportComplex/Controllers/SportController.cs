@@ -17,7 +17,7 @@ namespace MVCSport.Controllers
         // GET: Sports
         public ActionResult Index()
         {
-            return View(db.TblSports.ToList());
+        return View(db.TblSports.ToList());
         }
 
         // GET: Sports/Create
