@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ثبت کارمند جدید -مدیریت کاربران</title>
+    <link rel="stylesheet" href="./styles/bootstrap-rtl.css" />
+    <link rel="stylesheet" href="./styles/bootstrap-theme.css" />
+    <link rel="stylesheet" href="./styles/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="./styles/bootstrap.css" />
+    <link rel="stylesheet" href="./styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">مدیریت کاربران</a>
+        </div>
+        <div class="navbar-collapse collapse"></div>
+      </div>
+    </div>
+    <div class="container body-content">
+      <form action="/Users/Create" method="post">
+        <input
+          name="__RequestVerificationToken"
+          type="hidden"
+          value="SDRFEV5kzomYE1JHXM2qxDPxiXZOLy376KU7EU96T2gXJThYF1Lck61Ay272OgVpfrB5jDF0jy3Efrb7CCVo9-qiq684u38sbzUQHPjnvFA1"
+        />
+        <div class="form-horizontal">
+          <h3>فرم ثبت کارمند</h3>
+          <hr />
+
+          <div class="form-group">
+            <label class="col-md-offset-0.1" for="fname">نام</label>
+            <div class="col-md-10">
+              <input
+                class="form-control text-box single-line"
+                id="fname"
+                name="fname"
+                type="text"
+                value=""
+                
+              />
+              <span
+                class="field-validation-valid text-danger"
+                data-valmsg-for="fname"
+                data-valmsg-replace="true"
+              ></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-offset-0.1" for="lname"
+              >نام خانوادگی</label
+            >
+            <div class="col-md-10">
+              <input
+                class="form-control text-box single-line"
+                id="lname"
+                name="lname"
+                type="text"
+                value=""
+              />
+              <span
+                class="field-validation-valid text-danger"
+                data-valmsg-for="lname"
+                data-valmsg-replace="true"
+              ></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-offset-0.1" for="age">سن</label>
+            <div class="col-md-10">
+              <input
+                class="form-control text-box single-line"
+                data-val="true"
+                data-val-number="The field سن must be a number."
+                id="age"
+                name="age"
+                type="number"
+                value=""
+              />
+              <span
+                class="field-validation-valid text-danger"
+                data-valmsg-for="age"
+                data-valmsg-replace="true"
+              ></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+              <input type="submit" value="ثبت کارمند" class="btn btn-success" />
+            </div>
+          </div>
+        </div>
+      </form>
+      <div>
+        <a href="/Users">برگشت</a>
+      </div>
+
+      <hr />
+    </div>
+
+    <script src="/Scripts/jquery-3.3.1.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+
+    <script src="/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+  </body>
+</html>
