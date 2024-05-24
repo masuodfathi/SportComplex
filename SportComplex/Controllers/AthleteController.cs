@@ -59,7 +59,7 @@ namespace SportComplex.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditLockerRoom([FromRoute] int id, [FromBody] CreateAthleteDto dto)
+        public async Task<ActionResult> EditAthelte([FromRoute] int id, [FromBody] CreateAthleteDto dto)
         {
             var athlete = await _context.Athletes.FirstOrDefaultAsync(c => c.Id == id);
             if (athlete is null)
