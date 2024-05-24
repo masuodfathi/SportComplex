@@ -93,7 +93,7 @@ namespace SportComplex.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteLockerRoom([FromRoute] int id)
+        public async Task<ActionResult> DeleteAthelete([FromRoute] int id)
         {
             var athlete = await _context.Athletes.FirstOrDefaultAsync(c => c.Id == id);
             if (athlete is null)
