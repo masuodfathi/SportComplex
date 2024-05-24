@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SportComplex.Models;
+using System.Reflection.Emit;
+using System.Reflection.Metadata;
 
 namespace SportComplex.Data
 {
@@ -13,11 +15,21 @@ namespace SportComplex.Data
             : base(options)
         {
         }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=app.db");
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Athlete>()
+            .HasOne(e => e.Sport)
+            .WithOne(e => e.Athlete)
+        .HasForeignKey<Athlete>(e => e.SportId)
+            .IsRequired();
+            base.OnModelCreating(builder);
+        }
+
     }
 }
