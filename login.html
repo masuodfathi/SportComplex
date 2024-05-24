@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> sport complax </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .login-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+        .login-form h2 {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .login-form input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+  padding: 0.75em 2em;
+  text-align: center;
+  text-decoration: none;
+  color: black
+  border: 1px solid #2194E0;
+  font-size: 12px;
+  border-radius: 0.3em;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  
+
+}
+.button:before {
+  content: "";
+  background-color: white;
+  height: 100%;
+  width: 3em;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -4.5em;
+  -webkit-transform: skewX(-45deg) translateX(0);
+          transform: skewX(-45deg) translateX(0);
+  -webkit-transition: none;
+  transition: none;
+}
+.button:hover {
+  background-color: #2194E0;
+  color: #fff;
+  border-bottom: 4px solid #1977b5;
+}
+.button:hover:before {
+  -webkit-transform: skewX(-45deg) translateX(13.5em);
+          transform: skewX(-45deg) translateX(13.5em);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2 style="text-align: right;"> ورود | ثبت نام</h2>
+        <p style="text-align: right;">
+            <br>!سلام
+<br>
+لطفا شماره موبایل یا ایمیل خود را وارد کنید
+
+
+        </p>
+        <form>
+            <div class="botton">
+            <input type="text" name="contact" placeholder="ایمیل یا شماره تلفن" required>
+                       <button type="submit" id="submit-btn">
+                    <a href="code.html" class="button" style="display: flex;">ورود</a>
+                </button>
+            </div>      
+  </form>
+  <h6>    ورود شما به معنای پذیرششرایط سالن ورزشی وقوانین حریم‌خصوصی است
+</h6>
+    </div>
+</body>
+</html>
