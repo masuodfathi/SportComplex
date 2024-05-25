@@ -10,6 +10,7 @@ namespace SportComplex.Data
     {
         public DbSet<Athlete> Athletes { get; set; }
         public DbSet<Sport> Sports { get; set; }
+        public DbSet<LockerRoom> LockerRooms { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -28,6 +29,13 @@ namespace SportComplex.Data
             .WithOne(e => e.Athlete)
         .HasForeignKey<Athlete>(e => e.SportId)
             .IsRequired();
+
+             builder.Entity<LockerRoom>().ToTable("LockerRooms");
+            builder.Entity<LockerRoom>().
+                HasMany(e => e.Lockers)
+                .WithOne(e => e.LockerRoom)
+                .HasForeignKey(e => e.LockerRoomId)
+                .IsRequired();
             base.OnModelCreating(builder);
         }
 
