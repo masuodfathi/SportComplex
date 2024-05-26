@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVCUser.Models.TblUser>
+
+@{
+    ViewBag.Title = "لیست کاربران";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<p>
+    @Html.ActionLink("افزودن کاربر جدید", "Create",null,new { @class="btn btn-success btn-sm"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="text-align:center">
+        <td>
+            @Html.DisplayFor(modelItem => item.fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.ID },new { @class="btn btn-info btn-sm"})
+            @Html.ActionLink("حذف", "Delete", new { id=item.ID },new { @class="btn btn-danger btn-sm"})
+        </td>
+    </tr>
+}
+
+</table>

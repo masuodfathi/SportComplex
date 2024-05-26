@@ -1,0 +1,20 @@
+﻿@model MVCUser.Models.TblUser
+
+@{
+    ViewBag.Title = "حذف کاربر";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="alert alert-danger">آیا مطمئن به حذف کاربر "@Model.fname @Model.lname" هستید؟</h3>
+<div>
+    <hr />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف کاربر" class="btn btn-danger" /> |
+            @Html.ActionLink("برگشت", "Index")
+        </div>
+    }
+</div>
