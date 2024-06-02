@@ -1,4 +1,7 @@
-﻿using SportComplex.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SportComplex.Data;
+using SportComplex.Interfaces;
+using SportComplex.Models;
 
 namespace SportComplex.Repositories
 {
