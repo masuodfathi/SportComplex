@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Complex - Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            text-align: right;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #444;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            width: 300px;
+            text-align: right;
+
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+        }
+        .button {
+            padding: 0.75em 2em;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            border: 1px solid #2194E0;
+            font-size: 12px;
+            border-radius: 0.3em;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            background-color: #2194E0;
+        }
+        .button:hover {
+            background-color: #1977b5;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container" id="step1">
+        <h2>ورود | ثبت نام</h2>
+        <p>لطفا شماره موبایل یا ایمیل خود را وارد کنید</p>
+        <form id="login-form">
+            <input type="text" name="contact" placeholder="ایمیل یا شماره تلفن" required>
+            <button type="submit" class="button">ورود</button>
+        </form>
+    </div>
+
+    <div class="form-container" id="step2" style="display: none;">
+        <h2>کد تایید را وارد کنید</h2>
+        <p>کد تایید برای شماره تلفن ارسال شد</p>
+        <form id="code-form">
+            <input type="text" name="verification-code" required>
+            <button type="submit" class="button">تایید</button>
+        </form>
+    </div>
+
+    <div class="form-container" id="step3" style="display: none;">
+        <h2>فرم ثبت نام کارمند سالن ورزشی</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="fname">نام:</label>
+                <input type="text" id="fname" name="fname" required>
+            </div>
+            <div class="form-group">
+                <label for="lname">نام خانوادگی:</label>
+                <input type="text" id="lname" name="lname" required>
+            </div>
+            <div class="form-group">
+                <label for="password">رمز عبور :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="birthdate">تاریخ تولد (شمسی):</label>
+                <input type="text" id="birthdate" name="birthdate" placeholder="yyyy/mm/dd" onfocus="(this.type='date')" onblur="(this.type='text')">
+            </div>
+            <div class="form-group">
+                <label for="position">سمت:</label>
+                <select id="position" name="position">
+                    <option value="اداری">کارمند اداری</option>
+                    <option value="تیم">اعضای تیم</option>
+                    <option value="کاربر">کاربر</option>
+                </select>
+            </div>
+            <div class="form-group" id="employee-role" style="display: none;">
+                <label for="role">انتخاب سمت:</label>
+                <select id="role" name="role">
+                    <option value="مدیر">مدیر</option>
+                    <option value="معاون">معاون</option>
+                    <option value="کارمند عادی">کارمند عادی</option>
+                </select>
+            </div>
+            <div class="form-group" id="team-sports" style="display: none;">
+                <label for="sport">انتخاب ورزش:</label>
+                <select id="sport" name="sport">
+                    <option value="فوتبال">فوتبال</option>
+                    <option value="والیبال">والیبال</option>
+                    <option value="بسکتبال">بسکتبال</option>
+                    <option value="تنیس">تنیس</option>
+                </select>
+            </div>
+            <button type="submit" class="button">ثبت نام</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // در اینجا کد ارسال به سرور و دریافت کد تایید را اضافه کنید
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        });
+
+        document.getElementById('code-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // در اینجا کد تایید را بررسی کنید
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // در اینجا کد ارسال اطلاعات ثبت نام به سرور را اضافه کنید
+            alert('ثبت نام با موفقیت انجام شد!');
+        });
+
+        document.getElementById('position').addEventListener('change', function() {
+            var positionSelect = document.getElementById('position');
+            var employeeRoleDiv = document.getElementById('employee-role');
+            var teamSportsDiv = document.getElementById('team-sports');
+
+            if (positionSelect.value === 'اداری') {
+                employeeRoleDiv.style.display = 'block';
+                teamSportsDiv.style.display = 'none';
+            } else if (positionSelect.value === 'تیم') {
+                employeeRoleDiv.style.display = 'none';
+                teamSportsDiv.style.display = 'block';
+            } else {
+                employeeRoleDiv.style.display = 'none';
+                teamSportsDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

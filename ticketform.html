@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم بلیط ورزشی</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #444;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        select {
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Step 1: انتخاب ورزش -->
+        <div class="step active" id="step1">
+            <h2>ورزش خود را انتخاب کنید</h2>
+            <button onclick="selectSport('football')">فوتبال</button>
+            <button onclick="selectSport('basketball')">بسکتبال</button>
+            <button onclick="selectSport('volleyball')">والیبال</button>
+        </div>
+
+        <!-- Step 2: انتخاب مسابقه -->
+        <div class="step" id="step2">
+            <h2>مسابقه را انتخاب کنید</h2>
+            <div id="matches"></div>
+            <button onclick="goBack()">بازگشت</button>
+        </div>
+
+        <!-- Step 3: پرداخت -->
+        <div class="step" id="step3">
+            <h2>انتخاب صندلی و پرداخت</h2>
+            <div>
+                <label for="seatType">نوع صندلی:</label>
+                <select id="seatType">
+                    <option value="normal">عادی - ۵۰,۰۰۰ تومان</option>
+                    <option value="vip">ویژه - ۱۰۰,۰۰۰ تومان</option>
+                    <option value="vvip">ویژه ویژه - ۲۰۰,۰۰۰ تومان</option>
+                </select>
+            </div>
+            <button onclick="pay()">پرداخت</button>
+            <button onclick="goBack()">بازگشت</button>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="step" id="confirmation">
+            <h2>پرداخت با موفقیت انجام شد</h2>
+            <p>از خرید شما سپاسگزاریم!</p>
+        </div>
+    </div>
+
+    <script>
+        const matches = {
+            football: [
+                { id: 1, text: 'پرسپولیس vs استقلال - ۱۴۰۳/۰۵/۲۰' },
+                { id: 2, text: 'سپاهان vs تراکتور - ۱۴۰۳/۰۶/۱۵' }
+            ],
+            basketball: [
+                { id: 1, text: 'پتروشیمی vs مهرام - ۱۴۰۳/۰۵/۲۲' },
+                { id: 2, text: 'ذوب آهن vs شهرداری - ۱۴۰۳/۰۶/۱۰' }
+            ],
+            volleyball: [
+                { id: 1, text: 'سایپا vs پیکان - ۱۴۰۳/۰۵/۲۵' },
+                { id: 2, text: 'شهرداری vs فولاد - ۱۴۰۳/۰۶/۱۲' }
+            ]
+        };
+
+        let selectedSport = null;
+        let selectedMatch = null;
+
+        function selectSport(sport) {
+            selectedSport = sport;
+            document.getElementById('step1').style.display = 'none';
+            const matchesDiv = document.getElementById('matches');
+            matchesDiv.innerHTML = '';
+
+            matches[sport].forEach(match => {
+                const button = document.createElement('button');
+                button.textContent = match.text;
+                button.onclick = () => selectMatch(match);
+                matchesDiv.appendChild(button);
+            });
+
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function selectMatch(match) {
+            selectedMatch = match;
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+        }
+
+        function goBack() {
+            if (selectedMatch) {
+                selectedMatch = null;
+                document.getElementById('step3').style.display = 'none';
+                document.getElementById('step2').style.display = 'block';
+            } else if (selectedSport) {
+                selectedSport = null;
+                document.getElementById('step2').style.display = 'none';
+                document.getElementById('step1').style.display = 'block';
+            }
+        }
+
+        function pay() {
+            const seatType = document.getElementById('seatType').value;
+            alert(`پرداخت برای صندلی ${seatType} با موفقیت انجام شد`);
+            document.getElementById('step3').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
