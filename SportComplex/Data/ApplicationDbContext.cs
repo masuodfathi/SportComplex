@@ -11,6 +11,7 @@ namespace SportComplex.Data
         public DbSet<Athlete> Athletes { get; set; }
         public DbSet<Sport> Sports { get; set; }
         public DbSet<LockerRoom> LockerRooms { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
