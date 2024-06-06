@@ -1,0 +1,69 @@
+html,
+body {
+  height: 100%;
+  font-family: "Ubuntu", sans-serif;
+  direction: rtl;
+}
+
+.gfg {
+  height: 50px;
+  width: 50px;
+}
+
+.mynav {
+  color: #fff;
+}
+
+.mynav li a {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  padding: 8px 5px;
+}
+
+.mynav li a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mynav li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mynav li a i {
+  width: 25px;
+  text-align: center;
+}
+
+.notification-badge {
+  background-color: rgba(255, 255, 255, 0.7);
+  float: right;
+  color: #222;
+  font-size: 14px;
+  padding: 0px 8px;
+  border-radius: 2px;
+}
+
+.boxes img {
+  border-radius: 8px;
+  height: 300px;
+}
+.boxes h3 {
+  margin: 7px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.boxes {
+  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+  border: 1px solid #dedede;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+}
+.boxes:hover {
+  background-color: #dedede;
+}
